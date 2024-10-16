@@ -1,0 +1,13 @@
+a="   helo goodmorning  "
+print(a.capitalize())
+print(a.lower())
+print(a.isupper())
+print(a.islower())
+print(a.isdigit())
+print(a.isalpha())
+print(a.count('e'))
+print(a.index('e'))
+print(a.center(20))
+print(a.strip())
+print(a.startswith('h'))
+print(a.replace("goodmorning","goodafternoon"))
