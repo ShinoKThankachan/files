@@ -1,0 +1,15 @@
+l=[]
+l.append(1)
+l.append(2)
+l.append(2)
+l.append(3)
+l.append([4,5])
+l.extend([6,7,8,9])
+l.insert(2,25)
+l.pop(5)
+l.remove(7)
+
+print(l)
+print(l.count(2))
+print(l.index(2))
+print(l.index(2,2))

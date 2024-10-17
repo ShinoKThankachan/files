@@ -1,4 +1,4 @@
-a="   helo goodmorning  "
+a="helo goodmorning"
 print(a.capitalize())
 print(a.lower())
 print(a.isupper())
