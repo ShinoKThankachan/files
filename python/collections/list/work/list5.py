@@ -3,6 +3,11 @@ print(l)
 a=int(input("enter a value from list:"))
 count=l.count(a)
 print(count)
-print(l.index(a))
-print(l.index(2,a))
+length=len(l)
+l2=[]
+for i in range(length):
+    if l[i]==a:
+        l2.append(i)
+print(l2)
+
 

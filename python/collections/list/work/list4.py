@@ -5,6 +5,8 @@ for i in l:
     if a not in l:
         l.append(a)
         print(l)
+        break
     else:
         print("duplicate value")
+        break
     

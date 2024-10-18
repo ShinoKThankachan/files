@@ -1,0 +1,16 @@
+s={1,2,3,4,5}
+s1={1,2,3,6}
+print(s.difference(s1))
+print(s.intersection(s1))
+print(s.isdisjoint(s1))
+print(s.issubset(s1))
+print(s1.issubset(s))
+print(s.issuperset(s1))
+print(s.union(s1))
+print(s.symmetric_difference(s1))
+s2=s.copy()
+print(s2)
+# s.difference_update(s1)
+# s.intersection_update(s1)
+s.symmetric_difference_update(s1)
+print(s)

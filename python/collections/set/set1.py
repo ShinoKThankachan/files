@@ -1,0 +1,6 @@
+s=set()
+s.add(1)
+s.update({1,2,3,4,5})
+s.remove(3)
+s.discard(8)
+print(s)
