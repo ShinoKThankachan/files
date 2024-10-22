@@ -5,3 +5,4 @@ d.update({'age':20})
 d.update({'place':"kottayam"})
 print(d.get("name"))
 print(d)
+ 
