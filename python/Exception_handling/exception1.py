@@ -1,6 +1,6 @@
 a=10
 try:
     b=a/0
-    p
+    print(b)
 except:
     print(a,"is not divisible by zero")
