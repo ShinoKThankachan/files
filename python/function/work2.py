@@ -1,13 +1,5 @@
 l=[]
-while(True):
-    uc=int(input('''
-                1.Add Students
-                2.Delete Student
-                3.show all student
-                4.exit
-                enter your choice:'''))
-    if uc==1:
-        def add():
+def add():
             a=int(input("how many students you want to add:"))
             for i in range(a):
                 s={}
@@ -18,14 +10,23 @@ while(True):
                 s['name']=c
                 s['age']=d
                 l.append(s)
-        add()
-        print(l)
-    elif uc==2:
-        def delete():
+def delete():
             e=int(input("enter student id:"))
             for i in l:
                 i['id']==e
                 l.remove(i)
+while(True):
+    uc=int(input('''
+                1.Add Students
+                2.Delete Student
+                3.show all student
+                4.exit
+                enter your choice:'''))
+    if uc==1:
+        
+        add()
+        print(l)
+    elif uc==2:
         delete()
         print(l)
     elif uc==3:
