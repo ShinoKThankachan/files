@@ -1,6 +1,6 @@
 try:
-    f=open('/home/novavi/Desktop/shino/files/python/filehandling/sample.txt','x')
-    
+    f=open('/home/novavi/Desktop/shino/files/python/filehandling/sample.txt','x')    
+
 except:
     print("file exists")
 # f=open('/home/novavi/Desktop/shino/files/python/filehandling/sample.txt','w')
