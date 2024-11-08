@@ -1,6 +1,6 @@
 import re
 a=input("Enter your password:")
-res=re.search('[A-Z].{7}',a)
+res=re.search("(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}",a)
 if res:
     print("password is srong")
 else:
