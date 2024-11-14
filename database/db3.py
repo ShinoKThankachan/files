@@ -1,7 +1,7 @@
 import sqlite3
  
 
-con=sqlite3.connect("/home/synnefo/Desktop/Shino/files/database/alpha.db")
+con=sqlite3.connect("/home/synnefo/Desktop/shino/files/database/alpha.db")
 
 try:
     con.execute("create table employee(id int,name text,age int,email text,phone int,username text,password string)")
