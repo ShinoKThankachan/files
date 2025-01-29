@@ -7,4 +7,4 @@
 let element=document.getElementById('pr')
 console.log(element.innerHTML)
 element.innerHTML='Goodmorning'
-element.style.backgroundColor='red'
+element.style.color='red'

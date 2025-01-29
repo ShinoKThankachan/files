@@ -5,6 +5,9 @@
 
 function fun(){
     element=document.getElementById('text')
-    element.innerHTML='<p></p>'
-    document.main.appendChild(element)
+    console.log(element.value)
+    paragraph=document.getElementById('paragraph')
+    ptag=document.createElement('p')
+    ptag.innerHTML=element.value
+    paragraph.appendChild(ptag)
 }
