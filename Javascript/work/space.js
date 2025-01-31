@@ -2,4 +2,8 @@ function fun(str){
     return str.trim().toLowerCase()
 
 }
-console.log(fun('  hello  '))
+let a='  HELLO  '
+let b=fun(a)
+let len=b.length
+console.log(b)
+console.log(len)
