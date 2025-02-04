@@ -17,3 +17,4 @@ array.splice()
 arr=['apple','orange','grapes']
 arr.splice(1,0,'pineapple')
 console.log(arr)
+console.log(typeof(arr))

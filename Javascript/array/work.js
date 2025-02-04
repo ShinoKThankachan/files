@@ -1,10 +1,10 @@
 let numbers = [];
-for (i = 1; i <= 20; i++) {
+for (i=1; i<=20; i++) {
     numbers.push(i);
 }
 let evenNumbers = [];
 let oddNumbers = [];
-for (i = 0; i < numbers.length; i++) {
+for (i=0; i<numbers.length; i++) {
     if (numbers[i] % 2 === 0) {
         evenNumbers.push(numbers[i]);
     } else {
@@ -17,7 +17,7 @@ console.log("Odd Numbers:", oddNumbers);
 
 
 let array = 0;
-for (i = 1; i <= 10; i++) {
+for (i=1; i<=10; i++) {
     array += i;
 }
 console.log(array);
@@ -28,7 +28,7 @@ console.log(array);
 let a = 0;
 let b = 0;
 let c = 0;
-for (i = 0; i < numbers.length; i++) {
+for (i=0; i<numbers.length; i++) {
     c += numbers[i];
     if (numbers[i] % 2 === 0) {
         a += numbers[i];

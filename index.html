@@ -17,12 +17,16 @@
             padding: 20px;
             text-align: center;
             font-size: 24px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s;
         }
         nav {
             display: flex;
             justify-content: center;
             background: #444;
             padding: 10px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
         }
         nav a {
             color: white;
@@ -35,10 +39,11 @@
             padding: 50px;
             background: url('lift-background.jpg') no-repeat center center/cover;
             color: white;
+            opacity: 0;
+            animation: slideIn 1s forwards 1.5s;
         }
-        .content {
-            padding: 20px;
-            text-align: center;
+        .hero h1, .hero p {
+            animation: fadeIn 1.5s forwards 2s;
         }
         .carousel {
             display: flex;
@@ -46,6 +51,8 @@
             width: 100%;
             height: 300px;
             position: relative;
+            opacity: 0;
+            animation: fadeIn 1s forwards 2.5s;
         }
         .carousel img {
             width: 100%;
@@ -53,11 +60,27 @@
             object-fit: cover;
             transition: transform 1s ease-in-out;
         }
+        .content {
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards 3s;
+        }
+        .service-image, .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 3.5s;
+        }
         .contact {
             background: #222;
             color: white;
             padding: 20px;
             text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards 4s;
         }
         .career-button {
             display: inline-block;
@@ -68,6 +91,74 @@
             text-decoration: none;
             border-radius: 5px;
             margin-top: 10px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 4.5s;
+        }
+
+        /* Fade-in effect */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Slide-in effect */
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Smooth image carousel sliding */
+        @keyframes slideCarousel {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-100%); }
+            100% { transform: translateX(-200%); }
+        }
+
+        /* Hamburger menu icon */
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Mobile menu */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background-color: #000000;
+            width: 100%;
+            text-align: center;
+        }
+
+        .mobile-nav a {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        /* Responsive design for small screens */
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Hide the default navigation */
+                flex-direction: column;
+                width: 100%;
+            }
+            .menu-icon {
+                display: block; /* Show the menu icon */
+            }
+            .mobile-nav {
+                display: none;
+            }
+            .mobile-nav.show {
+                display: flex;
+            }
+        }
+
+        /* Ensure responsive images */
+        img {
+            width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -82,6 +173,16 @@
         <a href="#careers">Careers</a>
         <a href="#contact">Contact</a>
     </nav>
+    <!-- Hamburger Menu Icon -->
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About Us</a>
+        <a href="#careers">Careers</a>
+        <a href="#contact">Contact</a>
+    </div>
     <section class="hero">
         <h1>Building Safe & Modern Lifts</h1>
         <p>Quality lift solutions for commercial and residential buildings.</p>
@@ -93,11 +194,13 @@
     </section>
     <section class="content" id="services">
         <h2>Our Services</h2>
+        <img src="service-image.jpg" alt="Lift Installation Services" class="service-image">
         <p>We provide high-quality lift installation, maintenance, and modernization services.</p>
     </section>
     <section class="content" id="about">
         <h2>About Us</h2>
-        <p>Zafeer Constructions is a leading lift construction company with years of expertise.</p>
+        <img src="about-image.jpg" alt="About Us - Lift Construction" class="about-image">
+        <p>Zafeer Constructions is a leading lift construction company with years of expertise in delivering top-tier lift solutions for commercial and residential buildings.</p>
     </section>
     <section class="content" id="careers">
         <h2>Careers</h2>
@@ -108,5 +211,12 @@
         <h2>Contact Us</h2>
         <p>Email: info@zafeerconstructions.com | Phone: +123 456 7890</p>
     </section>
+
+    <script>
+        function toggleMenu() {
+            var mobileNav = document.getElementById("mobileNav");
+            mobileNav.classList.toggle("show");
+        }
+    </script>
 </body>
 </html>
