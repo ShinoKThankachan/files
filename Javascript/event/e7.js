@@ -4,6 +4,6 @@ let myphone=document.getElementById('phone')
 let student=[]
 let mybtn=document.getElementById('add')
 mybtn.addEventListener('click',()=>{
-    student.push({Name:myname,Email:myemail,Phone:myphone})
+    student.push({Name:myname.value,Email:myemail.value,Phone:myphone.value})
     console.log(student)
 })
