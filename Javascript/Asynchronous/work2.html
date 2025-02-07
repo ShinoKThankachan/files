@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #0ff;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+        }
+
+        #clock {
+            font-size: 4rem;
+            padding: 20px 40px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            text-shadow: 0 0 10px cyan;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #clock:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 1);
+            text-shadow: 0 0 15px cyan;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+    <script src="work2.js"></script>
+</body>
+</html>
