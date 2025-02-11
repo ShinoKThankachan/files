@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
+  background-color: #FBF6E9;
   color: #333;
   display: flex;
   justify-content: center;
@@ -43,7 +43,7 @@ form p {
 }
 
 form button {
-  background-color: #329419;
+  background-color: #118B50;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -73,12 +73,12 @@ form input[type="email"] {
 form input[type="text"]:focus,
 form input[type="password"]:focus,
 form input[type="email"]:focus {
-  border-color: #329419;
+  border-color: #118B50;
   outline: none;
 }
 
 p a {
-  color: #329419;
+  color: #118B50;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;

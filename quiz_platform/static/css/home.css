@@ -98,7 +98,7 @@ footer {
 
 
 @media (max-width: 768px) {
-    h1 {
+    a {
         font-size: 28px; 
     }
 
