@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+</head>
+<body>
+    <h2>{{ user_profile.user.username }}'s Profile</h2>
+    <p>Bio: {{ user_profile.bio }}</p>
+    <p>Profile Picture: <img src="{{ user_profile.profile_picture.url }}" alt="Profile Picture"></p>
+
+    <h3>Your Quiz Scores</h3>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Difficulty</th>
+            <th>Score</th>
+        </tr>
+        {% for score in scores %}
+        <tr>
+            <td>{{ score.category.name }}</td>
+            <td>{{ score.difficulty.name }}</td>
+            <td>{{ score.score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="{% url 'quiz' category.id difficulty.id %}">Take another quiz</a></p>
+    <p><a href="{% url 'feedback' %}">Provide Feedback</a></p>
+</body>
+</html>

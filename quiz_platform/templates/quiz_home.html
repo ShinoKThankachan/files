@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Categories</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .btn { padding: 10px 20px; margin: 10px; font-size: 18px; background: blue; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Select a Quiz Category</h1>
+    <a href="{% url 'quiz' 1 1 %}"><button class="btn">Front-End</button></a>
+    <a href="{% url 'quiz' 2 1 %}"><button class="btn">Back-End</button></a>
+    <a href="{% url 'quiz' 3 1 %}"><button class="btn">Framework</button></a>
+</body>
+</html>

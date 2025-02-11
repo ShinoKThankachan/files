@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Quiz Platform</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div class="a"><h1>Welcome to Codex Quiz Platform</h1></div>
+
+    <nav>
+        <ul>
+            <li><h2>CODEX Quiz</h2></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+           
+        </ul>
+    </nav>
+    <div class="main">
+       <button><a href="{% url 'quiz_home' %}">Participate in Quiz</a></button> 
+       <button><a href="{% url 'top_scorers' %}">Top Scorers</a></button> 
+       <button><a href="{% url 'feedback' %}">Share Your Feedback</a></button> 
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Codex Quiz Platform. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

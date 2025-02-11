@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Scorers</title>
+</head>
+<body>
+    <h2>Top Scorers</h2>
+    {% for category, scores in top_scores.items %}
+        <h3>{{ category }} - Easy</h3>
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Score</th>
+            </tr>
+            {% for score in scores.easy %}
+            <tr>
+                <td>{{ score.user.username }}</td>
+                <td>{{ score.score }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>{{ category }} - Medium</h3>
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Score</th>
+            </tr>
+            {% for score in scores.medium %}
+            <tr>
+                <td>{{ score.user.username }}</td>
+                <td>{{ score.score }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>{{ category }} - Hard</h3>
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Score</th>
+            </tr>
+            {% for score in scores.hard %}
+            <tr>
+                <td>{{ score.user.username }}</td>
+                <td>{{ score.score }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+    <p><a href="{% url 'profile' %}">Go Back to Profile</a></p>
+</body>
+</html>
