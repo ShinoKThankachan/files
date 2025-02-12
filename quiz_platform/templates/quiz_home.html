@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Categories</title>
-    <style>
-        body { text-align: center; font-family: Arial, sans-serif; }
-        .btn { padding: 10px 20px; margin: 10px; font-size: 18px; background: blue; color: white; border: none; cursor: pointer; }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/quiz_home.css' %}">
+  
 </head>
 <body>
+    <div class="main">
+        <img src="{% static 'images/eea752365c06473f8ceeddb8e4c66609.png' %}" alt="" id="img1">
+        <h3>Python Quiz</h3>
+        <p>Python tests, quizzes, and exams are great ways to learn and test your Python programming skills. Whether you're a beginner or experienced, challenge and boost your confidence with our engaging online quizzes on Python basics.</p>
+    </div>
     <h1>Select a Quiz Category</h1>
     <a href="{% url 'quiz' 1 1 %}"><button class="btn">Front-End</button></a>
     <a href="{% url 'quiz' 2 1 %}"><button class="btn">Back-End</button></a>

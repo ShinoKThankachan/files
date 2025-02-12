@@ -10,5 +10,7 @@ urlpatterns = [
     path('top-scorers/', views.top_scorers, name='top_scorers'),
     path('feedback/', views.feedback, name='feedback'),
     path('profile/', views.profile, name='profile'),
+    path('results/<int:score>/',views.results, name='results'),
+    path('logout/', views.logout_view, name='logout'),
 ]
 

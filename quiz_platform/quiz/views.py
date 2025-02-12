@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from .models import QuizCategory, DifficultyLevel, Question, Score, UserProfile, Feedback
 from .forms import RegisterForm, FeedbackForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate,logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 
@@ -63,32 +63,37 @@ def quiz(request, category_id, difficulty_id):
     questions = Question.objects.filter(category=category, difficulty=difficulty)
 
     if request.method == 'POST':
+        answers = {}
+        for question in questions:
+            answer = request.POST.get(f'question_{question.id}')
+            if answer:
+                answers[question.id] = answer
         
-        answers = request.POST.getlist('answers')
         score = calculate_score(questions, answers)
         Score.objects.create(user=request.user, category=category, difficulty=difficulty, score=score)
-
-      
-        send_mail(
-            'Your Quiz Results',
-            f'You scored {score} points on the {category.name} {difficulty.name} quiz.',
-            'no-reply@quizplatform.com',
-            [request.user.email],
-            fail_silently=False,
-        )
-        return redirect('results', score=score)
+        next_difficulty_id = difficulty_id + 1
+        if next_difficulty_id > 3:  
+            return redirect('home') 
+        else:
+            return redirect('quiz', category_id=category_id, difficulty_id=next_difficulty_id)
 
     return render(request, 'quiz.html', {'category': category, 'difficulty': difficulty, 'questions': questions})
 
 
+
+
 def calculate_score(questions, answers):
     score = 0
-    for question, user_answer in zip(questions, answers):
-        if int(user_answer) == question.correct_option:
+    for question in questions:
+        user_answer = answers.get(question.id)
+        if user_answer and int(user_answer) == question.correct_option:
             score += 1
     return score
 
 
+@login_required
+def results(request, score):
+    return render(request, 'results.html', {'score': score})
 @login_required
 def feedback(request):
     if request.method == 'POST':
@@ -101,7 +106,7 @@ def feedback(request):
         form = FeedbackForm()
     return render(request, 'feedback.html', {'form': form})
 
-
+@login_required
 def top_scorers(request):
     categories = QuizCategory.objects.all()
     top_scores = {}
@@ -116,3 +121,8 @@ def top_scorers(request):
     return render(request, 'top_scorers.html', {'top_scores': top_scores})
 def home(request):
     return render(request, 'home.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect(login_view)
