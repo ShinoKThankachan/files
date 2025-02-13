@@ -1,0 +1,192 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2); 
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #fff;
+    height: 60px; 
+    position: sticky;
+    top: 0; 
+    z-index: 1000;
+}
+
+header .logo h1 {
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+
+/* Navigation links */
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff9a9e;
+}
+
+/* Menu Icon (Hamburger) */
+.menu-icon {
+    display: none;  /* Hidden by default */
+    font-size: 2em;
+    cursor: pointer;
+    color: #fff;
+    margin-left: auto; /* Move the menu icon to the right */
+}
+
+/* Table and General */
+h2 {
+    text-align: center;
+    font-size: 3em;
+    margin: 60px 0;
+    color: #fff;
+}
+
+h3 {
+    font-size: 2em;
+    margin: 20px 0;
+    color: #fff;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #fff;
+}
+
+th {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+}
+
+/* Responsive Design */
+
+/* Mobile and Tablet Devices */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .logo h1 {
+        font-size: 2em;
+    }
+
+    nav ul {
+        display: none; /* Hide navigation links by default */
+        width: 100%;
+        margin-top: 10px;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        padding: 10px;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Show the menu when the class 'open' is added to the menu icon */
+    .menu-icon.open + #nav-links {
+        display: flex; /* Show the nav links when the icon is clicked */
+    }
+
+    /* Show menu icon on the right */
+    .menu-icon {
+        display: block; /* Show the menu icon on mobile */
+        position: absolute;
+        top: 15px;
+        right: 20px; /* Position it on the right */
+    }
+
+    /* To position the icon on the right when clicked */
+    .menu-icon.open {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}
+
+/* Larger Devices (Desktop) */
+@media (min-width: 1024px) {
+    h2 {
+        font-size: 3.5em;
+    }
+
+    h3 {
+        font-size: 2.2em;
+    }
+
+    table {
+        width: 80%;
+    }
+
+    th, td {
+        font-size: 1.1em;
+    }
+}

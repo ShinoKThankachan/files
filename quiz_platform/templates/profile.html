@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Profile</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <h1>CODEX</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'profile' %}">My Profile</a></li>
+                <li><a href="{% url 'top_scorers' %}">Top Scorers</a></li>
+            </ul>
+        </nav>
+    </header>
     <h2>{{ user_profile.user.username }}'s Profile</h2>
-    <p>Bio: {{ user_profile.bio }}</p>
-    <p>Profile Picture: <img src="{{ user_profile.profile_picture.url }}" alt="Profile Picture"></p>
+   <p><img src="{% static 'images/default.png' %}" alt="Default Profile Picture"></p>
+
 
     <h3>Your Quiz Scores</h3>
     <table>
@@ -26,7 +40,17 @@
         {% endfor %}
     </table>
 
-    <p><a href="{% url 'quiz' category.id difficulty.id %}">Take another quiz</a></p>
-    <p><a href="{% url 'feedback' %}">Provide Feedback</a></p>
+    <p>
+    <form action="{% url 'quiz_home' %}" method="get">
+        <button type="submit">Take Another Quiz</button>
+    </form>
+    
+</p>
+    <p><form action="{% url 'feedback' %}" method="get">
+        <button type="submit">Provide Feedback</button>
+    </form></p>
+    <footer>
+        <p>&copy; 2025 Codex Quiz Platform. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
