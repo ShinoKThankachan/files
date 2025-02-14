@@ -8,7 +8,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2); 
+    background: linear-gradient(to right, #6a11cb, #2575fc); 
     color: #fff;
     min-height: 100vh;
 }
@@ -102,8 +102,8 @@ a {
 }
 
 .btn {
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4); 
-    color: #fff;
+    background-color: #ffcc00;
+    color: black;
     font-size: 1.2em;
     padding: 15px 30px;
     border: none;
@@ -116,7 +116,7 @@ a {
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, #fad0c4, #ff9a9e); 
+    background: #ffa500;
     transform: scale(1.05);
 }
 

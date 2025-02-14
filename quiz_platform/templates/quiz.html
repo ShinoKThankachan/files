@@ -31,13 +31,13 @@
         {% csrf_token %}
         {% for question in questions %}
             <p>{{ question.question_text }}</p>
-            <input type="radio" name="question_{{ question.id }}" value="1"> {{ question.option1 }}<br>
-            <input type="radio" name="question_{{ question.id }}" value="2"> {{ question.option2 }}<br>
-            <input type="radio" name="question_{{ question.id }}" value="3"> {{ question.option3 }}<br>
-            <input type="radio" name="question_{{ question.id }}" value="4"> {{ question.option4 }}<br>
+            <input type="radio" name="question_{{ question.id }}" value="1"> {{ question.option1 }}<br><br>
+            <input type="radio" name="question_{{ question.id }}" value="2"> {{ question.option2 }}<br><br>
+            <input type="radio" name="question_{{ question.id }}" value="3"> {{ question.option3 }}<br><br>
+            <input type="radio" name="question_{{ question.id }}" value="4"> {{ question.option4 }}<br><br><br>
         {% endfor %}
         <button type="submit">Submit</button>
-    </form>
+    </form><br><br><br><br><br><br>
     <footer>
         <p>&copy; 2025 Codex Quiz Platform. All Rights Reserved.</p>
     </footer>

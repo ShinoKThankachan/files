@@ -76,7 +76,7 @@ def quiz(request, category_id, difficulty_id):
         answers = {question.id: request.POST.get(f'question_{question.id}') for question in questions if request.POST.get(f'question_{question.id}')}
         score = calculate_score(questions, answers)
         correct_answers = sum(1 for question in questions if answers.get(question.id) == str(question.correct_option))
-        if correct_answers >= 2:
+        if correct_answers >= 3:
             total_score = request.session.get('total_score', 0)
             total_score += score
             request.session['total_score'] = total_score 
