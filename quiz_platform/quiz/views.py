@@ -21,7 +21,7 @@ def register(request):
                 [user.email],
                 fail_silently=False,
             )
-            return redirect('home')
+            return redirect('login')
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})
