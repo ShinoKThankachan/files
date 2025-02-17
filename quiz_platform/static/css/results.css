@@ -1,11 +1,9 @@
-/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #6a11cb, #2575fc);
@@ -13,7 +11,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -32,7 +30,7 @@ header .logo h1 {
     letter-spacing: 2px;
 }
 
-/* Navigation */
+
 nav ul {
     list-style-type: none;
     display: flex;
@@ -55,16 +53,14 @@ nav ul li a:hover {
     color: #ff9a9e;
 }
 
-/* Menu Icon (Hamburger) */
 .menu-icon {
-    display: none; /* Hidden by default */
+    display: none; 
     font-size: 2em;
     cursor: pointer;
     color: #fff;
     margin-left: auto;
 }
 
-/* Main Heading */
 h1 {
     text-align: center;
     font-size: 3em;
@@ -72,7 +68,6 @@ h1 {
     color: #fff;
 }
 
-/* Content Paragraph */
 .a p {
     text-align: center;
     font-size: 1.5em;
@@ -81,14 +76,12 @@ h1 {
     font-weight: bold;
 }
 
-/* Button Container */
 .b {
     display: flex;
     justify-content: center;
     margin-top: 30px;
 }
 
-/* Button Styles */
 .b form button {
     background-color: #ffcc00;
     color: black;
@@ -112,7 +105,6 @@ h1 {
     outline: none;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 20px;
@@ -123,9 +115,6 @@ footer {
     color: #fff;
 }
 
-/* Responsive Design */
-
-/* For Tablets and Mobile Devices */
 @media (max-width: 768px) {
     header {
         flex-direction: column;

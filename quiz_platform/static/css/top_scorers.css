@@ -1,11 +1,9 @@
-/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #6a11cb, #2575fc); 
@@ -13,7 +11,6 @@ body {
     min-height: 100vh;
 }
 
-/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -32,7 +29,7 @@ header .logo h1 {
     letter-spacing: 2px;
 }
 
-/* Navigation links */
+
 nav ul {
     list-style-type: none;
     display: flex;
@@ -55,16 +52,15 @@ nav ul li a:hover {
     color: #ff9a9e;
 }
 
-/* Menu Icon (Hamburger) */
+
 .menu-icon {
-    display: none;  /* Hidden by default */
+    display: none; 
     font-size: 2em;
     cursor: pointer;
     color: #fff;
-    margin-left: auto; /* Move the menu icon to the right */
+    margin-left: auto; 
 }
 
-/* Table and General */
 h2 {
     text-align: center;
     font-size: 3em;
@@ -105,7 +101,7 @@ tr:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* Footer */
+
 footer {
     text-align: center;
     padding: 20px;
@@ -115,9 +111,7 @@ footer {
     color: #fff;
 }
 
-/* Responsive Design */
 
-/* Mobile and Tablet Devices */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -129,7 +123,7 @@ footer {
     }
 
     nav ul {
-        display: none; /* Hide navigation links by default */
+        display: none; 
         width: 100%;
         margin-top: 10px;
         flex-direction: column;
@@ -151,20 +145,17 @@ footer {
         text-align: center;
     }
 
-    /* Show the menu when the class 'open' is added to the menu icon */
     .menu-icon.open + #nav-links {
-        display: flex; /* Show the nav links when the icon is clicked */
+        display: flex;
     }
-
-    /* Show menu icon on the right */
+    
     .menu-icon {
-        display: block; /* Show the menu icon on mobile */
+        display: block; 
         position: absolute;
         top: 15px;
-        right: 20px; /* Position it on the right */
+        right: 20px; 
     }
 
-    /* To position the icon on the right when clicked */
     .menu-icon.open {
         position: absolute;
         top: 20px;
@@ -172,7 +163,6 @@ footer {
     }
 }
 
-/* Larger Devices (Desktop) */
 @media (min-width: 1024px) {
     h2 {
         font-size: 3.5em;

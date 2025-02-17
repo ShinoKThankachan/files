@@ -14,6 +14,7 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
+            Score.objects.create(user=user, score=0) 
             send_mail(
                 'Welcome to Quiz Platform!',
                 'Thank you for registering. Start taking quizzes now!',
@@ -25,6 +26,7 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})
+
 
 
 def login_view(request):
@@ -49,15 +51,13 @@ def login_view(request):
 
 @login_required
 def profile(request):
+    print(f"Current user: {request.user.username}")  
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     scores = Score.objects.filter(user=request.user)
-    categories = QuizCategory.objects.all() 
-    difficulties = DifficultyLevel.objects.all() 
+
     return render(request, 'profile.html', {
         'user_profile': user_profile, 
-        'scores': scores,
-        'categories': categories,
-        'difficulties': difficulties
+        'scores': scores
     })
 
 
@@ -67,6 +67,7 @@ def quiz_home(request):
     return render(request,'quiz_home.html')
 
 
+@login_required
 def quiz(request, category_id, difficulty_id):
     category = QuizCategory.objects.get(id=category_id)
     difficulty = DifficultyLevel.objects.get(id=difficulty_id)
@@ -75,19 +76,22 @@ def quiz(request, category_id, difficulty_id):
     if request.method == 'POST':
         answers = {question.id: request.POST.get(f'question_{question.id}') for question in questions if request.POST.get(f'question_{question.id}')}
         score = calculate_score(questions, answers)
+
         correct_answers = sum(1 for question in questions if answers.get(question.id) == str(question.correct_option))
+
+        total_score = request.session.get('total_score', 0)
+        total_score += score
+        request.session['total_score'] = total_score  
+
+        Score.objects.create(user=request.user, category=category, difficulty=difficulty, score=score)
+
         if correct_answers >= 3:
-            total_score = request.session.get('total_score', 0)
-            total_score += score
-            request.session['total_score'] = total_score 
             next_difficulty_id = difficulty_id + 1
             if next_difficulty_id > 3:  
-                final_score = request.session.pop('total_score', 0)
-                return redirect('results', score=final_score)
+                return redirect('results') 
             else:
                 return redirect('quiz', category_id=category_id, difficulty_id=next_difficulty_id)
         else:
-            
             return render(request, 'quiz.html', {
                 'category': category,
                 'difficulty': difficulty,
@@ -100,18 +104,35 @@ def quiz(request, category_id, difficulty_id):
 
 
 
+
+
+def submit_quiz(request):
+    if request.method == 'POST':
+        user = request.user
+        score_value = request.session.get('total_score', 0)
+
+        if score_value > 0:  
+            Score.objects.create(user=user, score=score_value)  
+            request.session.pop('total_score', None)  
+        return redirect('top_scorers')
+
 def calculate_score(questions, answers):
     score = 0
     for question in questions:
         user_answer = answers.get(question.id)
+        print(f"Question ID: {question.id}, User Answer: {user_answer}, Correct Answer: {question.correct_option}")  
         if user_answer and int(user_answer) == question.correct_option:
             score += 1
+    print(f"Calculated Score: {score}")  
     return score
 
 
 @login_required
-def results(request, score):
-    return render(request, 'results.html', {'score': score})
+def results(request):
+    total_score = request.session.get('total_score', 0) 
+    return render(request, 'results.html', {'score': total_score})
+
+
 @login_required
 def feedback(request):
     if request.method == 'POST':
