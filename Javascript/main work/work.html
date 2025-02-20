@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Handling</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>Enter Details</h3>
+    <input type="text" id="name" placeholder="Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="tel" id="phone" placeholder="Phone Number">
+    <button onclick="submitForm()">Submit</button>
+</div>
+
+<div class="container hidden" id="displaySection">
+    <h3>Submitted Details</h3>
+    <input type="text" id="dispName" disabled>
+    <input type="email" id="dispEmail" disabled>
+    <input type="tel" id="dispPhone" disabled>
+    <button onclick="editForm()" id="editBtn">Edit</button>
+    <button onclick="deleteForm()">Delete</button>
+</div>
+<script src="work.js"></script>
+</body>
+</html>
