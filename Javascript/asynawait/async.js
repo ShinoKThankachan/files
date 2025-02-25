@@ -18,11 +18,11 @@ async function fetchData(){
         console.log(data)
         data.products.forEach(value=>{
             let newdiv = document.createElement('div')
-            newdiv.className='product lg-4'
+            newdiv.className='product col-lg-4'
             newdiv.innerHTML= 
                 `<h3>${value.title}</h3>
                 <p>${value.description}</p>
-                <p>Price: ${value.price}</p>
+                <p><Strong>Price:</Strong>$ ${value.price}</p>
                 <img src=${value.thumbnail}>`
             document.body.appendChild(newdiv)
         })
