@@ -1,0 +1,16 @@
+body{
+  margin: 0px;
+}
+nav{
+  background-color: black;
+  height: 50px;
+  
+}
+nav ul{
+  list-style-type: none;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 15px;
+  margin: 0px;
+}
