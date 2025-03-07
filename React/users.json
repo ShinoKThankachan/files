@@ -1,0 +1,64 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "age": 29,
+        "address": {
+          "street": "123 Main St",
+          "city": "New York",
+          "state": "NY",
+          "zip": "10001"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "age": 34,
+        "address": {
+          "street": "456 Oak St",
+          "city": "Los Angeles",
+          "state": "CA",
+          "zip": "90001"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Robert Brown",
+        "email": "robert.brown@example.com",
+        "age": 41,
+        "address": {
+          "street": "789 Pine St",
+          "city": "Chicago",
+          "state": "IL",
+          "zip": "60601"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Emily White",
+        "email": "emily.white@example.com",
+        "age": 27,
+        "address": {
+          "street": "321 Birch St",
+          "city": "Houston",
+          "state": "TX",
+          "zip": "77001"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Michael Johnson",
+        "email": "michael.johnson@example.com",
+        "age": 36,
+        "address": {
+          "street": "654 Cedar St",
+          "city": "Phoenix",
+          "state": "AZ",
+          "zip": "85001"
+        }
+      }
+    ]
+  }
