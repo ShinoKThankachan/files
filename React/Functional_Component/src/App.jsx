@@ -236,46 +236,112 @@
 
 
 
-import React, { useContext, useState } from "react";
+// import React, { useContext, useState } from "react";
 
-const ThemeContext = React.createContext();
+// const ThemeContext = React.createContext();
 
-function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("light");
+// function ThemeProvider({ children }) {
+//   const [theme, setTheme] = useState("light");
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+//   const toggleTheme = () => {
+//     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+//   };
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+//   return (
+//     <ThemeContext.Provider value={{ theme, toggleTheme }}>
+//       {children}
+//     </ThemeContext.Provider>
+//   );
+// }
+
+// function ThemeButton() {
+//   const { theme, toggleTheme } = useContext(ThemeContext);
+
+//   return (
+//     <button
+//       onClick={toggleTheme}
+//       style={{
+//         backgroundColor: theme === "light" ? "#fff" : "#333",
+//         color: theme === "light" ? "#000" : "#fff",
+//       }}
+//     >
+//       {theme} mode
+//     </button>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <ThemeProvider>
+//       <ThemeButton />
+//     </ThemeProvider>
+//   );
+// }
+
+// export default App;
+
+
+// import { useState } from "react";
+// import { useMemo } from "react";
+
+// export default function App(){
+//   const [count,setCount]=useState(0)
+//   let sum=useMemo(()=>loop(),[])
+//   return(
+//   <>
+//     <p>{count}</p>
+//     <button onClick={()=>setCount(count+1)}>+</button>
+//     <p>Sum is :{sum}</p>
+//   </>
+//   )
+// }
+
+// function loop(){
+//   let sum=0
+//   for (let i=0;i<=1e9;i++){
+//     sum+=i
+//   }
+//   return sum
+// }
+
+
+
+import React, { useMemo, useState } from 'react'
+
+function ExpensiveComponent({ items, filter }){
+    
+    const filteredItems = useMemo(() => {
+        console.log('Filtering items...')
+        return items.filter(item => item.includes(filter))
+    }, [items, filter])
+
+    return (
+        <div>
+            <h3>Filtered Items:</h3>
+            <ul>
+                {filteredItems.map((item, index)=>(
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>
+        </div>
+    )
 }
 
-function ThemeButton() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+function App(){
+    const [filter, setFilter] = useState('')
+    const items = ['apple', 'banana', 'cherry', 'date', 'elderberry']
 
-  return (
-    <button
-      onClick={toggleTheme}
-      style={{
-        backgroundColor: theme === "light" ? "#fff" : "#333",
-        color: theme === "light" ? "#000" : "#fff",
-      }}
-    >
-      {theme} mode
-    </button>
-  );
+    return (
+        <div>
+            <input 
+                type="text"
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                placeholder="Filter items"
+            />
+            <ExpensiveComponent items={items} filter={filter}/>
+        </div>
+    )
 }
 
-function App() {
-  return (
-    <ThemeProvider>
-      <ThemeButton />
-    </ThemeProvider>
-  );
-}
-
-export default App;
+export default App
