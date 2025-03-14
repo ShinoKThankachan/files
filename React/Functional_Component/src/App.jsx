@@ -198,7 +198,7 @@
 //   }
 //   return(
 //     <>
-     
+
 //         <input type="text" ref={myRef} placeholder="Focus Me !!" onChange={handleSubmit} />
 //     </>
 //   )
@@ -306,40 +306,90 @@
 
 
 
-import React, { useMemo, useState } from 'react'
+// import React, { useMemo, useState } from 'react'
 
-function ExpensiveComponent({ items, filter }){
-    
-    const filteredItems = useMemo(() => {
-        console.log('Filtering items...')
-        return items.filter(item => item.includes(filter))
-    }, [items, filter])
+// function ExpensiveComponent({ items, filter }){
 
+//     const filteredItems = useMemo(() => {
+//         console.log('Filtering items...')
+//         return items.filter(item => item.includes(filter))
+//     }, [items, filter])
+
+//     return (
+//         <div>
+//             <h3>Filtered Items:</h3>
+//             <ul>
+//                 {filteredItems.map((item, index)=>(
+//                     <li key={index}>{item}</li>
+//                 ))}
+//             </ul>
+//         </div>
+//     )
+// }
+
+// function App(){
+//     const [filter, setFilter] = useState('')
+//     const items = ['apple', 'banana', 'cherry', 'date', 'elderberry']
+
+//     return (
+//         <div>
+//             <input 
+//                 type="text"
+//                 value={filter}
+//                 onChange={(e) => setFilter(e.target.value)}
+//                 placeholder="Filter items"
+//             />
+//             <ExpensiveComponent items={items} filter={filter}/>
+//         </div>
+//     )
+// }
+
+// export default App
+
+
+
+
+// import { useCallback, useState } from "react";
+// import Child from "./Child";
+// import {BrowserRouter} from 'react-router-dom'
+
+// const App = () => {
+//     const [count, setCount] = useState(0)
+//     const incriment = useCallback(() => {
+//         setCount((count) => count + 1)
+//         console.log("button clicked")
+//     })
+//     return (
+//         <>
+//             <Child Incriment={incriment} />
+//             <p>Count:{count}</p>
+//             <button onClick={incriment}>Incriment</button>
+//         </>
+//     )
+// }
+
+
+// export default App
+
+
+
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Products from './pages/Products'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+const App = () => {
     return (
         <div>
-            <h3>Filtered Items:</h3>
-            <ul>
-                {filteredItems.map((item, index)=>(
-                    <li key={index}>{item}</li>
-                ))}
-            </ul>
-        </div>
-    )
-}
-
-function App(){
-    const [filter, setFilter] = useState('')
-    const items = ['apple', 'banana', 'cherry', 'date', 'elderberry']
-
-    return (
-        <div>
-            <input 
-                type="text"
-                value={filter}
-                onChange={(e) => setFilter(e.target.value)}
-                placeholder="Filter items"
-            />
-            <ExpensiveComponent items={items} filter={filter}/>
+            <Navbar/>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="" element={<Home />} />
+                    <Route path="/products" element={<Products/>}/>
+                </Routes>
+            </BrowserRouter>
+            <Footer/>
         </div>
     )
 }
