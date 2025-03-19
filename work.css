@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #2d1635 50%, #fff 50%);
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+    align-items: center;
+}
+
+
+.left-side {
+    position: relative;
+    width: 40%;
+    height: 300px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+}
+
+
+.card {
+    width: 320px;
+    height: 180px;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    position: absolute;
+}
+
+.front {
+    background: linear-gradient(135deg, #652a8a, #ff6b6b);
+    top: 0;
+    left: 30px;
+    z-index: 2;
+}
+
+.circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.small-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+    position: absolute;
+    top: 25px;
+    left: 50px;
+}
+
+.card-number {
+    font-size: 18px;
+    margin-top: 50px;
+    letter-spacing: 2px;
+}
+
+.card-holder {
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.expiry {
+    float: right;
+    font-size: 12px;
+}
+
+.back {
+    background: #ccc;
+    top: 200px;
+    left: 50px; 
+    z-index: 1;
+}
+
+.stripe {
+    width: 100%;
+    height: 30px;
+    background: black;
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+.cvc-box {
+    background: lightgray;
+    width: 250px;
+    height: 20px;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    text-align: right;
+    line-height: 20px;
+}
+
+.right-side {
+    width: 50%;
+    padding: 80px;
+    height: 300px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    width: 48%;
+}
+
+.exp-date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.exp-date input {
+    width: 48%;
+}
+
+button {
+    margin-top: 20px;
+    background: #2d1635;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4a1d5d;
+}
+
+
+@media screen and (max-width: 768px) {
+    body {
+        background: linear-gradient(to bottom, #2d1635 50%, #fff 50%);
+        flex-direction: column;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .left-side {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .right-side {
+        width: 100%;
+        text-align: center;
+    }
+
+   
+    .front {
+        top: 20px;
+        left: 30px; 
+        z-index: 2;
+    }
+
+    .back {
+        top: 60px;
+        left: 50px; 
+        z-index: 1;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    .exp-date input {
+        width: 100%;
+    }
+}

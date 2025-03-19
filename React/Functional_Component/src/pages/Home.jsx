@@ -1,11 +1,20 @@
-import React from 'react'
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import { useEffect } from "react";
 
-const home = () => {
+function Home(){
+  const navigate = useNavigate();
+  const prodNavigate=useNavigate()
+  const getProduct=(id)=>{
+    prodNavigate(`/products/${id}`)
+  }
   return (
     <div>
-      <h1>Home page</h1>
+      <Navbar/>
+      <h1>Home</h1>
+      <button onClick={()=>getProduct(103)}>Products</button>
     </div>
   )
 }
 
-export default home
+export default Home;
